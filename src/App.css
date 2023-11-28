@@ -79,6 +79,10 @@
     margin-bottom: 4rem;
   }
   
+  #submit:hover {
+    cursor: pointer;
+  }
+  
   .question {
     margin-inline: 25%;
     margin-top: 3rem;
@@ -109,4 +113,28 @@
   margin-top: 1rem;
   display: flex;
   gap: 1.5rem;
+}
+
+.true, .false {
+  border-radius: 5px;
+  padding: 8px  10px;
+  border:none;
+  background-color: #26717a98;
+  color:#fff;
+  cursor: pointer;
+} 
+
+@media (max-width: 430px) {
+  .title {
+    width: fit-content;
+  }
+
+  .quest {
+    width: fit-content;
+  }
+
+  .question {
+    margin: 0 auto;
+    align-items: center;
+  }
 }

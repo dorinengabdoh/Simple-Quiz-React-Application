@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import "./App.css";
 import Question from "./componenent/questionComponent/Question";
 import Result from "./componenent/resultComponent/Result";

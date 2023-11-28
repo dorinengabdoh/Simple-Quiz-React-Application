@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Static from "../staticComponent/Static";
 import Footer from "../footerComponent/Footer";
 
-let fetch_counter = 1;
+let number = 1;
 
 const Question = () => {
   const [data, setData] = useState();
@@ -11,12 +11,11 @@ const Question = () => {
   const loadQuestions = () => {
     const api = "https://opentdb.com/api.php?amount=10&type=boolean";
 
-    if (fetch_counter === 1) {
+    if (number === 1) {
       fetch(api)
       .then((response) => response.json())
       .then((data) => setData(data.results));
-
-      fetch_counter +=1;
+      number +=1;
     }
   };
 
@@ -25,7 +24,7 @@ const Question = () => {
   }, []);
 
   const arr = data;
-  console.log("heloooo", arr);
+  console.log("heloooo i'm data", arr);
 
   return (
     <>
@@ -36,10 +35,10 @@ const Question = () => {
             <div>
               {arr.map((ques) => (
                 <p className="quest" key={ques.question}>
-                  {ques.question}
+                  {ques.question}?
                   <div className="but">
-                    <button className="tf">True</button>
-                    <button className="tf">False</button>
+                    <button onClick={handleClickTrue} className="true">True</button>
+                    <button onClick={handleClickFalse} className="false">False</button>
                   </div>
                 </p>
               ))}
@@ -54,4 +53,24 @@ const Question = () => {
   );
 };
 
+
+
+// addEventListener to buttons
+
+// const [questions, setQuestions] = useState([]);
+// const [currentQuestion, setCurrentQuestion] = useState(0);
+// const [userAnswer, setUserAnswer] = useState(null);
+// const [score, setScore] = useState(0);
+
+
+const handleClickTrue = () =>{
+  console.log("true button clicker");
+}
+
+const handleClickFalse = () =>{
+  console.log("false button clicker");
+}
+
+
 export default Question;
+
